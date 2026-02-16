@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Baumgartner Digital Infrastructure
 
-## Getting Started
+Official website and digital infrastructure for Baumgartner Development.
 
-First, run the development server:
+Built with a modern, production-ready stack focused on reliability,
+clean architecture and secure communication.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🚀 Tech Stack
+
+- Next.js 16 (App Router)
+- TypeScript
+- Node.js Runtime (API routes)
+- Nodemailer (SMTP contact handling)
+- Dynamic OpenGraph image generation
+- Vercel deployment
+
+---
+
+## ✉️ Contact API
+
+Secure server-side SMTP endpoint:
+
+**POST `/api/contact`**
+
+Features:
+
+- Accepts JSON and form submissions
+- Honeypot spam protection
+- Server-side validation
+- HTML + plain text email output
+- `replyTo` set to sender email
+
+### Required Environment Variables
+
+```env
+MAIL_TO=
+MAIL_FROM=
+MAIL_FROM_NAME=
+SMTP_HOST=
+SMTP_PORT=
+SMTP_SECURE=
+SMTP_USER=
+SMTP_PASS=
+NEXT_PUBLIC_SITE_URL=
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Runs locally on:
 
-To learn more about Next.js, take a look at the following resources:
+```
+http://127.0.0.1:3001
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌍 Deployment
 
-## Deploy on Vercel
+Hosted on Vercel.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+API routes are pinned to Node.js runtime via `vercel.json`
+to ensure SMTP compatibility.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📄 License
+
+Private project — all rights reserved.
+
+---
+
+## 🏛 Agency Positioning (für Gemeinden & Unternehmen)
+
+Baumgartner Digital Infrastructure positioniert sich als strategischer Technologiepartner für:
+
+- Gemeinden & öffentliche Verwaltungen
+- Bildungsinstitutionen
+- KMU & mittelständische Unternehmen
+- Organisationen mit komplexen Informationsstrukturen
+
+### 🎯 Unser Fokus
+
+Wir bauen keine "Webseiten".
+Wir entwickeln digitale Infrastrukturen.
+
+Das bedeutet:
+
+- Klare Informationsarchitektur
+- Zukunftssichere Content-Systeme
+- Sichere, DSGVO-konforme Datenverarbeitung
+- Strukturierte Kommunikations- & Serviceplattformen
+- Skalierbare technische Grundlagen für Wachstum
+
+### 🏗 Typische Projekte
+
+- Gemeindeportale & Bürgerservice-Plattformen
+- Bildungs- & Kursplattformen
+- Interne Wissenssysteme
+- Multi-Standort-Unternehmenswebsites
+- Digitale Transformationsprojekte
+
+### 🧭 Unser Ansatz
+
+1. Analyse der bestehenden Informationsstruktur
+2. Strategische Architekturplanung
+3. Saubere technische Implementierung (Next.js, moderne APIs, sichere Infrastruktur)
+4. Nachhaltige Wartung & Weiterentwicklung
+
+### 🤝 Warum Baumgartner Digital Infrastructure?
+
+- Technisch tiefes Verständnis (Full-Stack & Infrastruktur)
+- Strategischer Blick auf Organisation & Prozesse
+- Erfahrung mit komplexen Systemarchitekturen
+- Langfristige Partnerschaft statt Einmalprojekt
+
+> Digitale Infrastruktur ist heute Teil der öffentlichen und unternehmerischen Verantwortung.
