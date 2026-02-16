@@ -5,6 +5,8 @@ type Variant = "primary" | "secondary" | "ghost";
 type Size = "sm" | "md";
 
 const base =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 " +
+  "focus-visible:outline-cyan-400 " +
   "inline-flex items-center justify-center whitespace-nowrap font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 disabled:opacity-50 disabled:pointer-events-none";
 
 const variants: Record<Variant, string> = {

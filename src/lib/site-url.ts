@@ -1,8 +1,7 @@
 export function getSiteUrl() {
   const explicit =
     process.env.NEXT_PUBLIC_SITE_URL ||
-    process.env.SITE_URL ||
-    process.env.NEXT_PUBLIC_VERCEL_URL;
+    process.env.SITE_URL;
   if (explicit) return explicit.replace(/\/+$/, "");
 
   const vercelProd = process.env.VERCEL_PROJECT_PRODUCTION_URL;

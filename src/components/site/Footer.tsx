@@ -4,8 +4,15 @@ import { Logo } from "@/components/site/Logo";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-5 py-10">
+    <footer className="mt-16 border-t border-white/10 py-10">
+      <div className="mx-auto max-w-6xl px-5">
+        <div className="text-sm opacity-80">
+          <span className="font-medium">WCAG 2.2 AA</span> – barrierearme Umsetzung für Gemeinden &amp; Bildung. {" "}
+          <Link className="underline underline-offset-4" href="/accessibility">
+            Mehr zur Barrierefreiheit
+          </Link>
+        </div>
+        <div className="mt-6" />
         <div className="flex items-center justify-between gap-6">
           <Logo size={40} showText={false} />
           <div className="text-xs text-white/55">

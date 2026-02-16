@@ -30,6 +30,56 @@
           radial-gradient(900px 700px at 60% 120%, rgba(255,255,255,.06), transparent 55%);
 }
 
+/* ==============================
+   WCAG 2.2 AA – Baseline A11y
+   ============================== */
+
+/* Visible keyboard focus (AA) */
+:focus-visible {
+  outline: 3px solid rgba(34, 211, 238, 0.95); /* cyan-400 */
+  outline-offset: 3px;
+}
+
+/* Skip link (shown on keyboard focus) */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 9999;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(15, 23, 42, 0.92);
+  color: white;
+  transform: translateY(-140%);
+  transition: transform 160ms ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Links must not rely on color alone (AA) */
+a:not([class]) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+/* Respect reduced motion (AA) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Improve tap targets on touch devices (AA-ish) */
+button, a, input, textarea, select {
+  touch-action: manipulation;
+}
+
 html, body { height: 100%; }
 
 body {

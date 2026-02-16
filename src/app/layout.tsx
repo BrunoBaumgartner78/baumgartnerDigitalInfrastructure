@@ -49,8 +49,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <div className="site-bg min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+          <a className="skip-link" href="#main-content">
+            Zum Inhalt springen
+          </a>
           <Header />
-          <main className="mx-auto max-w-6xl px-5 py-10">{children}</main>
+          <main id="main-content" className="mx-auto max-w-6xl px-5 py-10">
+            {children}
+          </main>
           <Footer />
         </div>
       </body>
