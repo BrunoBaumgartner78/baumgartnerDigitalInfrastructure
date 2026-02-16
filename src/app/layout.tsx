@@ -4,11 +4,24 @@ import { Header } from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import { site } from "@/config/site";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "http://localhost:3001";
+function getSiteUrl() {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL;
+  if (explicit) return explicit.replace(/\/+$/, "");
+
+  const vercelProd = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  if (vercelProd) return `https://${vercelProd}`.replace(/\/+$/, "");
+
+  const vercel = process.env.VERCEL_URL;
+  if (vercel) return `https://${vercel}`.replace(/\/+$/, "");
+
+  const port = process.env.PORT || "3000";
+  return `http://localhost:${port}`;
+}
+
+const SITE_URL = getSiteUrl();
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Baumgartner Digital Infrastructure",
     template: "%s · Baumgartner Digital Infrastructure",
