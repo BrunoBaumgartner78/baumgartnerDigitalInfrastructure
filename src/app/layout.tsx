@@ -5,20 +5,6 @@ import Footer from "@/components/site/Footer";
 import { site } from "@/config/site";
 import { getSiteOriginUrl } from "@/lib/site-url";
 
-function getSiteUrl() {
-  const explicit = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL;
-  if (explicit) return explicit.replace(/\/+$/, "");
-
-  const vercelProd = process.env.VERCEL_PROJECT_PRODUCTION_URL;
-  if (vercelProd) return `https://${vercelProd}`.replace(/\/+$/, "");
-
-  const vercel = process.env.VERCEL_URL;
-  if (vercel) return `https://${vercel}`.replace(/\/+$/, "");
-
-  const port = process.env.PORT || "3000";
-  return `http://localhost:${port}`;
-}
-
 // Produce absolute metadata at runtime so OG/Twitter URLs are correct in prod
 export async function generateMetadata(): Promise<Metadata> {
   const base = new URL(getSiteOriginUrl());
