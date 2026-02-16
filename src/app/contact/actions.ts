@@ -1,4 +1,5 @@
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
 import nodemailer from "nodemailer";
@@ -88,7 +89,7 @@ async function sendContactMail(payload: ContactPayload) {
   });
 }
 
-export async function submitContact(prevState: any, formData: FormData) {
+export async function submitContact(formData: FormData) {
   const payload: ContactPayload = {
     orgType: (formData.get("orgType") as any) || "Organisation",
     orgName: String(formData.get("orgName") || "").trim(),
@@ -115,7 +116,8 @@ export async function submitContact(prevState: any, formData: FormData) {
   if (!payload.message || payload.message.length < 20) errors.message = "Bitte kurz beschreiben (mind. 20 Zeichen).";
 
   if (Object.keys(errors).length) {
-    return { ok: false, errors, values: payload };
+    // Redirect back to the contact page with an error flag for the UI to handle
+    redirect("/contact?sent=0");
   }
   // ---- SMTP CONFIG (debug-safe) ----
   const host = process.env.SMTP_HOST || "smtp.gmail.com";
@@ -167,9 +169,10 @@ export async function submitContact(prevState: any, formData: FormData) {
     });
   } catch (err: any) {
     console.error("/api/contact error", err);
-    // Soft-fail: don't hard 500 in UX. Return ok:false for UI handling.
-    return { ok: false, smtp: true, message: "SMTP auth failed", values: payload };
+    // Redirect to failure state
+    redirect("/contact?sent=0");
   }
 
-  return { ok: true };
+  // On success, redirect to success state
+  redirect("/contact?sent=1");
 }

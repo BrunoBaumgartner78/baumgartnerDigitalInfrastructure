@@ -1,7 +1,7 @@
 export type CaseStudy = {
   slug: string;
   title: string;
-  sector: "Gemeinde" | "Bildung" | "Organisation";
+  sector: string;
   timeframe: string;
   outcomeHeadline: string;
   context: string;
