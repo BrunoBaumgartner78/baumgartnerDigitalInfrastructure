@@ -35,6 +35,14 @@ export const metadata: Metadata = {
       },
     ],
   },
+  icons: {
+    icon: [
+      { url: "/icon", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/apple-icon", type: "image/png", sizes: "180x180" },
+    ],
+  },
   twitter: {
     card: "summary_large_image",
     title: "Baumgartner Digital Infrastructure",
@@ -43,9 +51,17 @@ export const metadata: Metadata = {
   },
 };
 
+// Mobile browser address-bar color (Chrome/Android, some PWAs)
+export const viewport = {
+  themeColor: "#0f172a",
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de-CH">
+      <head>
+        <link rel="manifest" href="/manifest.webmanifest" />
+      </head>
       <body>
         <div className="site-bg min-h-screen bg-[var(--bg)] text-[var(--fg)]">
           <Header />

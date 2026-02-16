@@ -124,6 +124,18 @@ Das bedeutet:
 
 > Digitale Infrastruktur ist heute Teil der öffentlichen und unternehmerischen Verantwortung.
 
+## Icons & mobile browser color
+
+This project uses the Next.js App Router icon routes:
+
+- `src/app/icon.tsx` (favicon)
+- `src/app/apple-icon.tsx` (Apple touch icon)
+- `src/app/manifest.webmanifest` (PWA manifest)
+
+Mobile address-bar color is set via `src/app/layout.tsx`:
+
+- `export const viewport = { themeColor: "#0f172a" }`
+
 ## License
 
 © 2026 Bruno Baumgartner  
