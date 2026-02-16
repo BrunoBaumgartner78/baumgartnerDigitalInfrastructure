@@ -28,6 +28,8 @@
   --grid: radial-gradient(1200px 600px at 20% -10%, rgba(159,183,255,.16), transparent 60%),
           radial-gradient(900px 500px at 90% 10%, rgba(188,208,255,.10), transparent 55%),
           radial-gradient(900px 700px at 60% 120%, rgba(255,255,255,.06), transparent 55%);
+  --fg: #ffffff;
+  --bg: #0f172a;
 }
 
 /* ==============================
@@ -82,6 +84,11 @@ button, a, input, textarea, select {
 
 html, body { height: 100%; }
 
+html, body {
+  color: var(--fg);
+  background-color: var(--bg);
+}
+
 body {
   /* Base background */
   background: radial-gradient(1200px 700px at 50% 120px, rgba(60,120,255,.18), transparent 65%),
@@ -124,14 +131,14 @@ a:hover { color: var(--accent2);
 
 /* Falls irgendwo ein riesiges body/bg-gradient liegt, neutralisieren wir es hier bewusst */
 html, body{
-  background: #060b14;
+  background: var(--bg);
 }
 
 /* Wrapper trägt den Effekt */
 .site-bg{
   min-height: 100vh;
   position: relative;
-  background: #060b14;
+  background: var(--bg);
 }
 
 /* Der eigentliche Schimmer */
