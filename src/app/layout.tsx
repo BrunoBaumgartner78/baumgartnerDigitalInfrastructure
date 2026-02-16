@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import { site } from "@/config/site";
+import { getSiteOriginUrl } from "@/lib/site-url";
 
 function getSiteUrl() {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL;
@@ -18,51 +19,36 @@ function getSiteUrl() {
   return `http://localhost:${port}`;
 }
 
-const SITE_URL = getSiteUrl();
+// Produce absolute metadata at runtime so OG/Twitter URLs are correct in prod
+export async function generateMetadata(): Promise<Metadata> {
+  const base = new URL(getSiteOriginUrl());
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: {
-    default: "Baumgartner Digital Infrastructure",
-    template: "%s · Baumgartner Digital Infrastructure",
-  },
-  description:
-    "Digitale Infrastruktur für Gemeinden und Bildungsinstitutionen: Portale, Plattform-Architektur, Governance & langfristige Wartbarkeit.",
-  applicationName: "Baumgartner Digital Infrastructure",
-  robots: { index: true, follow: true },
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    url: "/",
-    title: "Baumgartner Digital Infrastructure",
-    description:
-      "Digitale Infrastruktur für Gemeinden und Bildungsinstitutionen: Portale, Plattform-Architektur, Governance & langfristige Wartbarkeit.",
-    siteName: "Baumgartner Digital Infrastructure",
-    images: [
-      {
-        url: "/og",
-        width: 1200,
-        height: 630,
-      },
-    ],
-  },
-  icons: {
-    icon: [
-      { url: "/icon", type: "image/png", sizes: "32x32" },
-    ],
-    apple: [
-      { url: "/apple-icon", type: "image/png", sizes: "180x180" },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Baumgartner Digital Infrastructure",
-    description:
-      "Digitale Infrastruktur für Gemeinden und Bildungsinstitutionen: Portale, Plattform-Architektur, Governance & langfristige Wartbarkeit.",
-  },
-};
+  return {
+    metadataBase: base,
+    alternates: { canonical: "/" },
+    manifest: "/manifest.webmanifest",
+    icons: {
+      icon: "/icon",
+      apple: "/apple-icon",
+    },
+    openGraph: {
+      type: "website",
+      url: "/",
+      images: [
+        {
+          url: new URL("/opengraph-image", base).toString(),
+          width: 1200,
+          height: 630,
+          alt: "Baumgartner Digital Infrastructure",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [new URL("/opengraph-image", base).toString()],
+    },
+  };
+}
 
 // Mobile browser address-bar color (Chrome/Android, some PWAs)
 export const viewport = {
