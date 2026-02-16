@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: "/",
       images: [
         {
-          url: new URL("/og.png", base).toString(),
+          url: new URL("/og-v2.png", base).toString(),
           width: 1200,
           height: 630,
           alt: "Baumgartner Digital Infrastructure",
@@ -31,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      images: [new URL("/og.png", base).toString()],
+      images: [new URL("/og-v2.png", base).toString()],
     },
   };
 }
