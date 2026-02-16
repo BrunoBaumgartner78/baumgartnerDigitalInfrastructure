@@ -1,0 +1,18 @@
+Baumgartner Digital Infrastructure License
+© 2026 Bruno Baumgartner – All Rights Reserved
+
+This repository is published for demonstration and portfolio purposes.
+The code, architecture concepts, documentation, and design elements
+represent proprietary intellectual property.
+
+You may:
+- View the repository publicly
+- Reference architectural concepts for educational purposes
+
+You may NOT:
+- Reuse the code commercially
+- Republish the code or documentation
+- Use the brand, design system, or positioning without written permission
+
+For licensing inquiries:
+bruno@brainbloom.ch

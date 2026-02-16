@@ -123,3 +123,9 @@ Das bedeutet:
 - Langfristige Partnerschaft statt Einmalprojekt
 
 > Digitale Infrastruktur ist heute Teil der öffentlichen und unternehmerischen Verantwortung.
+
+## License
+
+© 2026 Bruno Baumgartner  
+Published for portfolio and demonstration purposes only.  
+Commercial reuse requires written permission.
